@@ -1,0 +1,8 @@
+{
+  "employees": [
+    { "name": "John", "salary": 1000, "isOnRise": true },
+    { "name": "Alex", "salary": 1400, "isOnRise": false },
+    { "name": "Rick", "salary": 2000, "isOnRise": true },
+    { "name": "Justin", "salary": 1000, "isOnRise": false }
+  ]
+}
