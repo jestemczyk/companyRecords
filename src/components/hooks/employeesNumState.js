@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { employeesList } from "../employeesList";
+import { employeesList } from "./employeesList";
 
 export const employeesNumState = () => {
-  const [employeesNum, setEmployeesNum] = useState(
-    employeesList().employeesList.length
-  );
+  const { emplList, setEmplList } = employeesList();
+  const [employeesNum, setEmployeesNum] = useState(emplList.length);
 
   return {
     employeesNum,

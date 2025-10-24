@@ -1,8 +1,7 @@
 import React from "react";
 import { ListItem } from "./ListItem";
-import data from "/data.json";
 
-export const ListBlock = ({ state }) => {
+export const ListBlock = ({ filterState, employeesList }) => {
   function mkFilters(employees, filterButtons) {
     const filteredData = [];
     let id = "";
@@ -43,7 +42,7 @@ export const ListBlock = ({ state }) => {
 
   return (
     <div className="w-full flex flex-col mb-10">
-      {mkList(mkFilters(data.employees, state))}
+      {mkList(mkFilters(employeesList, filterState))}
     </div>
   );
 };

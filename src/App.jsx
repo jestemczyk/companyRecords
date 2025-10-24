@@ -4,14 +4,19 @@ import { SearchBlock } from "./components/searchBlock/SearchBlock";
 import { ListBlock } from "./components/listBlock/ListBlock";
 import { AddEmployeeForm } from "./components/addEmployeeFormBlock/AddEmployeeForm";
 import { employeesNumState } from "./components/hooks/filtersState";
+import { employeesList } from "./components/hooks/employeesList";
 
 function App() {
   const { filterButtons, setFilterButtons } = employeesNumState();
+  const { emplList, setEmplList } = employeesList();
   return (
     <div className="w-full h-full flex flex-col items-center">
       <TitleBlock />
-      <SearchBlock state={filterButtons} setState={setFilterButtons} />
-      <ListBlock state={filterButtons} />
+      <SearchBlock
+        filterState={filterButtons}
+        setFilterState={setFilterButtons}
+      />
+      <ListBlock filterState={filterButtons} employeesList={emplList} />
       <AddEmployeeForm />
     </div>
   );

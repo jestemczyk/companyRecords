@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 
-export const FilterButtons = ({ state, setState }) => {
+export const FilterButtons = ({ filterState, setFilterState }) => {
   const buttonDefStyle = "w-1/3 h-full cursor-pointer font-semibold";
   const buttonClickedStyle = "";
 
   function changeFilter(clickedId) {
-    setState((prev) =>
+    setFilterState((prev) =>
       prev.map((button) => ({ ...button, isActive: button.id === clickedId }))
     );
   }
 
   return (
     <div className="w-2/5 h-12 bg-white rounded-[5px] mb-7 border border-white">
-      {state.map((item) => {
+      {filterState.map((item) => {
         return (
           <button
             className={`${buttonDefStyle} ${
