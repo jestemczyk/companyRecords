@@ -1,11 +1,8 @@
 import React from "react";
 import { ListItem } from "./ListItem";
 import data from "/data.json";
-import { employeesNumState } from "../hooks/filtersState";
 
-export const ListBlock = () => {
-  const { filterButtons, setFilterButtons } = employeesNumState();
-
+export const ListBlock = ({ state }) => {
   function mkFilters(employees, filterButtons) {
     const filteredData = [];
     let id = "";
@@ -25,9 +22,11 @@ export const ListBlock = () => {
         }
       });
     } else if (id === "more") {
-      if (e.salary >= 1000) {
-        filteredData.push(e);
-      }
+      employees.forEach((e) => {
+        if (e.salary >= 1000) {
+          filteredData.push(e);
+        }
+      });
     } else {
       console.error("Undefined button id in mkFilters function");
     }
@@ -44,7 +43,7 @@ export const ListBlock = () => {
 
   return (
     <div className="w-full flex flex-col mb-10">
-      {mkList(mkFilters(data.employees, filterButtons))}
+      {mkList(mkFilters(data.employees, state))}
     </div>
   );
 };

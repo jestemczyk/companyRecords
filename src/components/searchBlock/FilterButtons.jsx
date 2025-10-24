@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import { employeesNumState } from "../hooks/filtersState";
 
-export const FilterButtons = () => {
+export const FilterButtons = ({ state, setState }) => {
   const buttonDefStyle = "w-1/3 h-full cursor-pointer font-semibold";
   const buttonClickedStyle = "";
-  const { filterButtons, setFilterButtons } = employeesNumState();
 
   function changeFilter(clickedId) {
-    setFilterButtons((prev) =>
+    setState((prev) =>
       prev.map((button) => ({ ...button, isActive: button.id === clickedId }))
     );
   }
 
   return (
     <div className="w-2/5 h-12 bg-white rounded-[5px] mb-7 border border-white">
-      {filterButtons.map((item) => {
+      {state.map((item) => {
         return (
           <button
             className={`${buttonDefStyle} ${
