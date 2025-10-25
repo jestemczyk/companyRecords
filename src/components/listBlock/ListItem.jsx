@@ -1,7 +1,7 @@
 import React from "react";
 import { ListItemButtons } from "./ListItemButtons";
 
-export const ListItem = ({ props }) => {
+export const ListItem = ({ props, setEmployeesList }) => {
   return (
     <div
       className={`w-full h-15 bg-white ${
@@ -10,7 +10,7 @@ export const ListItem = ({ props }) => {
     >
       <p className="w-4/6">{props.name}</p>
       <p className="w-1/6">{props.salary}$</p>
-      <ListItemButtons />
+      <ListItemButtons id={props.id} setEmployeesList={setEmployeesList} />
     </div>
   );
 };

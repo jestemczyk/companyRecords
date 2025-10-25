@@ -1,7 +1,7 @@
 import React from "react";
 import { ListItem } from "./ListItem";
 
-export const ListBlock = ({ filterState, employeesList }) => {
+export const ListBlock = ({ filterState, employeesList, setEmployeesList }) => {
   function mkFilters(employees, filterButtons) {
     const filteredData = [];
     let id = "";
@@ -35,7 +35,9 @@ export const ListBlock = ({ filterState, employeesList }) => {
   function mkList(data) {
     const components = [];
     for (let i = 0; i < data.length; i++) {
-      components.push(<ListItem props={data[i]} />);
+      components.push(
+        <ListItem props={data[i]} setEmployeesList={setEmployeesList} />
+      );
     }
     return components;
   }
