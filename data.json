@@ -3,6 +3,12 @@
     { "name": "John", "salary": 1000, "isOnRise": true, "id": 1 },
     { "name": "Alex", "salary": 1400, "isOnRise": false, "id": 2 },
     { "name": "Rick", "salary": 2000, "isOnRise": true, "id": 3 },
-    { "name": "Justin", "salary": 800, "isOnRise": false, "id": 4 }
+    { "name": "Justin", "salary": 800, "isOnRise": false, "id": 4 },
+    { "name": "Sophia", "salary": 750, "isOnRise": true, "id": 5 },
+    { "name": "Emma", "salary": 1500, "isOnRise": false, "id": 6 },
+    { "name": "Olivia", "salary": 900, "isOnRise": true, "id": 7 },
+    { "name": "Mason", "salary": 550, "isOnRise": false, "id": 8 },
+    { "name": "Liam", "salary": 720, "isOnRise": true, "id": 9 },
+    { "name": "Noah", "salary": 2100, "isOnRise": false, "id": 10 }
   ]
 }
