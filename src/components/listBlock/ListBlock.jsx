@@ -1,7 +1,25 @@
 import React from "react";
 import { ListItem } from "./ListItem";
 
-export const ListBlock = ({ filterState, employeesList, setEmployeesList }) => {
+export const ListBlock = ({
+  filterState,
+  employeesList,
+  setEmployeesList,
+  searchInputValue,
+}) => {
+  function onSearch(filteredList) {
+    const searchedList = [];
+    if (searchInputValue) {
+      filteredList.forEach((e) => {
+        if (e.name.toLowerCase().startsWith(searchInputValue.toLowerCase())) {
+          searchedList.push(e);
+        }
+      });
+      return searchedList;
+    } else {
+      return filteredList;
+    }
+  }
   function mkFilters(employees, filterButtons) {
     const filteredData = [];
     let id = "";
@@ -10,6 +28,7 @@ export const ListBlock = ({ filterState, employeesList, setEmployeesList }) => {
         id = e.id;
       }
     });
+
     if (id === "all") {
       employees.forEach((e) => {
         filteredData.push(e);
@@ -30,8 +49,9 @@ export const ListBlock = ({ filterState, employeesList, setEmployeesList }) => {
       console.error("Undefined button id in mkFilters function");
     }
 
-    return filteredData;
+    return onSearch(filteredData);
   }
+
   function mkList(data) {
     const components = [];
     for (let i = 0; i < data.length; i++) {

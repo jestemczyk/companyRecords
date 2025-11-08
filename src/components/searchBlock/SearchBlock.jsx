@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FilterButtons } from "./FilterButtons";
 
-export const SearchBlock = ({ filterState, setFilterState }) => {
+export const SearchBlock = ({
+  filterState,
+  setFilterState,
+  setSearchInputValue,
+}) => {
+  const searchInputRef = useRef(null);
+
+  function onSearchFunction() {
+    setSearchInputValue(() => searchInputRef.current.value);
+  }
+
   return (
     <div className="w-full bg-gray-700 flex justify-center mb-10">
       <div className="w-[95%]">
@@ -9,6 +19,8 @@ export const SearchBlock = ({ filterState, setFilterState }) => {
           type="text"
           placeholder="Find an employee"
           className="w-full h-12 bg-white rounded-[5px] text-black p-5 mb-5 mt-5 focus:outline-none"
+          ref={searchInputRef}
+          onKeyUp={onSearchFunction}
         />
         <FilterButtons
           filterState={filterState}
